@@ -10,7 +10,7 @@ class EventManager {
 
     sessionError(){
       alert('Usuario no ha iniciado sesión') 
-      window.location.href = 'http://localhost:8082/index.html' 
+      window.location.href = 'http://localhost:8080/index.html' 
     }
 
     obtenerDataInicial() {
@@ -183,7 +183,7 @@ class EventManager {
               data = ""; 
           $.post(url, data, (response) => {
             if(response == "logout"){
-              window.location.href="http://localhost:8082/index.html" 
+              window.location.href="http://localhost:8080/index.html" 
             }else{
               alert("Error inesperado al cerrar sesión") 
             }

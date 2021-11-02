@@ -27,9 +27,8 @@
     function showMessage(response) { //Funcion para mostrar mensajes al usuario
       $('#message').show('fold').html('<p>' + response + '</p>')
     }
-
-    verificarUsuarioDemo(); //Funcion para verificar si existe el usuario demo
-
+    /*Funcion para verificar si existe el usuario demo*/
+    verificarUsuarioDemo(); 
     function verificarUsuarioDemo() {
       $.ajax({
         url: '/usuarios/demo',
@@ -40,7 +39,7 @@
         }
       })
     }
-
+    /*Validación de coincidencia de credenciales de acceso y muestra de mensaje de error*/
     var nombreUsuario = $('#user')
     var pass = $('#pass')
     $('.loginButton').on('click', function (event) {
@@ -48,11 +47,13 @@
         $.post('/usuarios/login', { user: nombreUsuario.val(), pass: pass.val() }, function (response) {
           showMessage(response)
           if (response == "Validado") {
-            window.location.href = "http://localhost:8082/main.html"
+            window.location.href = "http://localhost:8080/main.html"
+          } else {
+            alert(response)
           }
         })
       } else {
-        alert("Complete todos los campos")
+        alert("Ingrese usuario y contraseña")
       }
     })
   </script>

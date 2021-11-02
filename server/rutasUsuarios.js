@@ -7,7 +7,7 @@ const Operaciones = require('./crud.js')
 Router.get('/demo', function(req, res) {
   Usuarios.find({user: req.query.user}).count({}, function(err, count) { 
     if(count>0){ 
-        res.send("Utilice los siguientes datos: </br>usuario: demo | password:123456 </br>usuario: juan | password:123456") //Mostrra mensaje con los datos de los usuarios predeterminados
+        res.send("Usuarios registrados!") //Mensaje para mostrar que los usuarios ya están registrados
     }else{
       Eventos.find({}).count({}, function(err, count) { 
         if(count>0){ 

@@ -6,12 +6,13 @@ const http = require('http');
       MongoClient = require('mongodb').MongoClient, 
       mongoose = require('mongoose'), 
 
-      mongoose.connect('mongodb://localhost:27017/agenda_db');
+      /*Definición de la base de datos mongodb*/
+      mongoose.connect('mongodb://localhost:27017/agendanode_db');
 
 const RoutingUsers = require('./rutasUsuarios.js'), 
       RoutingEvents = require('./rutasEventos.js') 
 
-const PORT = 8082 
+const PORT = 8080 
 const app = express() 
 
 const Server = http.createServer(app) 
@@ -29,6 +30,7 @@ app.use(session({
 app.use('/usuarios', RoutingUsers) 
 app.use('/events', RoutingEvents) 
 
+/*INICIALIZAR EL SERVIDOR EN EL PUERTO ESPECIFICADO*/
 Server.listen(PORT, function() { 
   console.log('Server is listening on port: ' + PORT) 
 })
